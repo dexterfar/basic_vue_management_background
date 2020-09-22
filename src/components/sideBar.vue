@@ -76,13 +76,13 @@ export default {
                 {
                     name: "题库管理",
                     iconClass: "el-icon-bank-card",
-                    url: "/teacherAdmin",
+                    url: "",
                     child:{
                         expand: false,
                         list:[{
                             name: "题目管理",
                             iconClass: "el-icon-document",
-                            url: "/teacherAdmin",
+                            url: "/subjectManagement",
                         },
                         {
                             name: "初始化设置",
@@ -145,7 +145,9 @@ export default {
             // alert(item.url)
             // console.log(this.$router);
             if(this.$router.currentRoute.fullPath != item.url){
-                this.$router.push(item.url);
+                if(item.url){
+                    this.$router.push(item.url);
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ import login from '@/components/login'
 import home from '@/components/home'
 import teacherAdmin from'@/components/teacherAdmin'
 import userAdmin from'@/components/userAdmin'
+import subjectManagement from'@/components/subjectManagement'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
                     path: '/userAdmin',
                     name: 'userAdmin',
                     component: userAdmin
+                },
+                {
+                    path: '/subjectManagement',
+                    name: 'subjectManagement',
+                    component: subjectManagement
                 }
             ]
         },
