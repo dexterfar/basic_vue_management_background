@@ -4,8 +4,8 @@ export default {
     // prodProxyUrl: "http://127.0.0.1:3100/api",
     // downLoadUrl: "http://127.0.0.1:3100/",
     //测试环境后台地址
-    prodProxyUrl: "http://47.107.150.65:3100/api",
-    downLoadUrl: "http://47.107.150.65:3100/",
+    prodProxyUrl: "http://localhost:8060/",
+    downLoadUrl: "http://localhost:8060/",
     //生产环境后台地址
     // prodProxyUrl: "http://183.66.178.70:3100/api",
     // downLoadUrl: "http://183.66.178.70:3100/",

@@ -3,7 +3,7 @@
     <v-header></v-header>
     <el-form :model="loginForm" status-icon ref="loginForm" label-width="100px" class="login-form">
       <el-form-item label="账号" prop="username">
-        <el-input type="text" v-model="loginForm.username" autocomplete="off"></el-input>
+        <el-input type="text" v-model="loginForm.phone" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input type="password" v-model="loginForm.password" autocomplete="off"></el-input>
@@ -17,12 +17,13 @@
 </template>
 <script>
 import vHeader from "./header";
+import { login } from '@/api/userManage';
 export default {
   name: "login",
   data() {
     return {
       loginForm: {
-        username: "",
+        phone: "13272670720",
         password: "",
       },
     };
@@ -33,6 +34,23 @@ export default {
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
+        login(this.loginForm).then(res=>{
+          let data = res.data;
+          if(data.code == 0 && data.message == "success"){
+            sessionStorage.setItem('ms_user', '1');
+            this.$router.push("/");
+          }
+          else{
+            this.toaster.error("登录失败")
+          }
+        }).catch(err=>{
+          this.toaster.error("登录失败")
+          console.log(err);
+        })
+        return;
+
+
+
         if (valid) {
             console.log(this.$router);
             sessionStorage.setItem('ms_user', '1')

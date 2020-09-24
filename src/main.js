@@ -1,12 +1,19 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
 import AppConfig from '@/resources/appConfig'
 import { Notification, Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+
+
+import Axios from "./lib/ajax";
+
+//------------ 自定义的VUE全局对象 开始 ----------
+Vue.prototype.$ajax = Axios; //http请求工具
+//------------ 自定义的VUE全局对象 结束 ----------
 
 Vue.config.productionTip = false
 
@@ -83,11 +90,12 @@ router.beforeEach((to, from, next) => {
 
 /* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    components: { App },
-    template: '<App/>'
-})
+    // el: '#app',
+    router: router,
+    // components: { App },
+    render: h => h(App),
+}).$mount("#app")
+
 
 
 

@@ -1,5 +1,6 @@
 const path = require("path");
 
+
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
@@ -110,13 +111,13 @@ module.exports = {
         // hotOnly: false,
         proxy: {
             "/api": {
-                // target: "http://127.0.0.1:3100/api",  //127.0.0.1  / 本地
-                target: "http://47.107.150.65:3100/api",  //47.107.150.65  / 测试
-                // target: "http://183.66.178.70:3100/api",  //183.66.178.70 / 正式
+                // target: "http://localhost:3100/api",  //127.0.0.1  / 本地
+                target: "http://localhost:8060/",  //47.107.150.65  / 测试
+                // target: "http://localhost:3100/api",  //183.66.178.70 / 正式
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    "^/api": "/"
-                } //重写接口
+                     "^/api": ""
+                }
             }
         }
     },
