@@ -18,6 +18,11 @@ export default new Router({
             component: home,
             children:[
                 {
+                    path: '/',
+                    name: 'teacherAdmin1',
+                    component: teacherAdmin
+                },
+                {
                     path: '/teacherAdmin',
                     name: 'teacherAdmin',
                     component: teacherAdmin
