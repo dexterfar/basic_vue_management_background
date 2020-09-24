@@ -7,8 +7,8 @@ export default {
     prodProxyUrl: "http://localhost:8060/",
     downLoadUrl: "http://localhost:8060/",
     //生产环境后台地址
-    // prodProxyUrl: "http://183.66.178.70:3100/api",
-    // downLoadUrl: "http://183.66.178.70:3100/",
+    // prodProxyUrl: "http://localhost:3100/api",
+    // downLoadUrl: "http://localhost:3100/",
     //开发环境下二级域名
     devProxyUrl: "/api",
     //默认布局
