@@ -62,32 +62,43 @@ let http = axios.create({
 //   }
 // );
 
-// // 添加响应拦截器，transformResponse之后执行
-// http.interceptors.response.use(
-//   response => {
-//     console.log("response success!");
+// 添加响应拦截器，transformResponse之后执行
+http.interceptors.response.use(
+  response => {
+    console.log("response success!");
    
-//       try {
-//         let _handle = response.data;
+      try {
+        // let _handle = response.data;
         
-//         if (_handle && _handle.code !== AppConfig.httpConst.HTTP_SUCCESS) {
-//           //需要登陆
-//           if (AppConfig.httpConst.HTTP_NOT_AUTH.indexOf(_handle.code*1) != -1)
-//             router.push({
-//               path: "/login"
-//           });
-//         }
-//         return _handle;
-//       } catch (error) {
-//         console.log(error);
-//       } finally {
-//         App.$Progress.finish();
-//       }
-//   },
-//   error => {
-//     App.toaster.warning('response filed!',App.respMessage(error))
-//   }
-// );
+        // if (_handle && _handle.code !== AppConfig.httpConst.HTTP_SUCCESS) {
+        //   //需要登陆
+        //   if (AppConfig.httpConst.HTTP_NOT_AUTH.indexOf(_handle.code*1) != -1)
+        //     router.push({
+        //       path: "/login"
+        //   });
+        // }
+
+        // 是否登录的状态，需要在这里做判定
+        if(response.data.code == 100001){
+          alert("登录超时");
+          router.push({
+              path: "/login"
+          });
+          return response;
+        }
+        else{
+          return response;
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        // App.$Progress.finish();
+      }
+  },
+  error => {
+    App.toaster.warning('response filed!',App.respMessage(error))
+  }
+);
 
 export default http;
 // export default {

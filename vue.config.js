@@ -112,8 +112,8 @@ module.exports = {
         proxy: {
             "/api": {
                 // target: "http://localhost:3100/api",  //127.0.0.1  / 本地
-                target: "http://localhost:8060/",  //47.107.150.65  / 测试
-                // target: "http://localhost:3100/api",  //183.66.178.70 / 正式
+                target: "http://localhost:8060/",  //localhost  / 测试
+                // target: "http://localhost:3100/api",  //localhost / 正式
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
                      "^/api": ""

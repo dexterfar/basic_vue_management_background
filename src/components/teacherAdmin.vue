@@ -82,6 +82,8 @@
     </div>
 </template>
 <script>
+
+import { getTeacherList } from '@/api/teacherUserManage';
 export default {
     data: function(){
         return {
@@ -110,6 +112,13 @@ export default {
             formLabelWidth: '120px'
         }
 
+    },
+    mounted(){
+        getTeacherList({}).then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err);
+        })
     },
     methods:{
         confirmAdd(e){
